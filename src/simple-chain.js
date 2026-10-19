@@ -10,12 +10,12 @@ const chainMaker = {
   getLength() {
     return this.values.length;
   },
-  addLink(value) {
+  addLink(value = "") {
     this.values.push(value);
     return this;
   },
   removeLink(position) {
-    if (position <= 0 || position > this.values.length) {
+    if (!Number.isInteger(position) || position <= 0 || position > this.values.length) {
       this.values = [];
       throw new Error("You can't remove incorrect link!");
     }
